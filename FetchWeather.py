@@ -6,9 +6,10 @@ def Fetch_Weather(place: str) -> dict[Any, Any]:
     try:
         # Making the user input usable to the API or url
         place = str(place.lower().replace(" ", "%20", -1))
+        API_KEY = "YOUR API KEY"
         # Getting the response from the API
         response = requests.request("GET",
-                                    f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{place}/today?unitGroup=metric&key=RV5JXAMTSA97PPG6HSQM3CPDW&contentType=json")
+                                    f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{place}/today?unitGroup=metric&key={API_KEY}&contentType=json")
         if response.status_code != 200:
             # If the API failed to fetch the data show the user an error
             return dict({
